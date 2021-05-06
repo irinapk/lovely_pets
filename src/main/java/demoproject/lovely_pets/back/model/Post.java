@@ -10,17 +10,16 @@ import java.util.Set;
 
 @Entity
 @Data
-@Table(name = "pets")
+@Table(name = "posts")
 @NoArgsConstructor
 @AllArgsConstructor
-public class Pet {
+public class Post {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "pet_id")
+    @Column(name = "post_id")
     private Long id;
-    private String nickname;
-    private Integer age;
-    @ManyToMany(mappedBy = "pets", fetch = FetchType.LAZY)
+    @ManyToMany(mappedBy = "posts", fetch = FetchType.LAZY)
     @JsonBackReference
-    private Set<User> users;
+    private Set<User> autors;
+    private String text;
 }
